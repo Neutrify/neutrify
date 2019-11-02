@@ -1,14 +1,14 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "neutrify-dev-20191029174016-authRole",
-            "UnauthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-authRole",
-            "Region": "eu-west-2",
-            "DeploymentBucketName": "neutrify-dev-20191029174016-deployment",
-            "UnauthRoleName": "neutrify-dev-20191029174016-unauthRole",
-            "StackName": "neutrify-dev-20191029174016",
-            "StackId": "arn:aws:cloudformation:eu-west-2:367347839712:stack/neutrify-dev-20191029174016/2df33f50-fa73-11e9-b474-069b836e2b40"
-        }
-    }
+	"dev": {
+		"awscloudformation": {
+			"AuthRoleName": "neutrify-dev-20191029174016-authRole",
+			"UnauthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-authRole",
+			"Region": "eu-west-2",
+			"DeploymentBucketName": "neutrify-dev-20191029174016-deployment",
+			"UnauthRoleName": "neutrify-dev-20191029174016-unauthRole",
+			"StackName": "neutrify-dev-20191029174016",
+			"StackId": "arn:aws:cloudformation:eu-west-2:367347839712:stack/neutrify-dev-20191029174016/2df33f50-fa73-11e9-b474-069b836e2b40"
+		}
+	}
 }

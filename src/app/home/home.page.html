@@ -1,123 +1,132 @@
 <ion-content #homePage>
 
   <div class="email-section">
-    <div class="ion-text-center ion-justify-content-center">
-        <ion-img class="logo" src="../../assets/img/logo/neutrify-default-logo-text-200px-64px.png"></ion-img>
-        <ion-label>
-          <ion-text color="light">
-              A new way to consume the news
-            </ion-text>
-        </ion-label>
-      </div>
-      <div>
-        <form [formGroup]="landingPageForm" (ngSubmit)="onSubmit()">
-          <ion-grid class="form-group">
-            <ion-row class="ion-justify-content-center">
-                <ion-item>
-                  <ion-input name="customerEmail" size="40px" class="form-control" type="email" 
-                  placeholder="Enter email address..." formControlName="customerEmail"></ion-input>
-                  <ion-button class="form-control" type="submit" color="tertiary" [disabled]="landingPageForm.invalid">Try it!</ion-button>
-                </ion-item>    
-            </ion-row>
-            <ion-row class="ion-justify-content-center">
-                <ion-label>
-                  <ion-text color="light">
-                    <p>Try Neutrify free for a month. No credit card required.</p>
-                  </ion-text>
-                </ion-label>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </div>
+    <ion-img class="logo" src="../../assets/img/logo/neutrify-1600px512px.png"></ion-img>
   </div>
 
-  <div class="ion-padding feature-section">
+  <div class="summary-section">
+    <div class="cta">
+          <ion-grid class="form-group">
+              <ion-row class="ion-justify-content-center">
+                <ion-card color="light" class="feature">
+                  <ion-card-content>
+                      <ion-list>
+                        <ion-item>
+                          <h3>Filter out hysteric and biased news articles.</h3>
+                          <ion-icon name="options" slot="start"></ion-icon>
+                        </ion-item>
+                        <ion-item>
+                          <h3>Use professional news analytics to work out an articles trustworthiness.</h3>
+                          <ion-icon name="stats" slot="start"></ion-icon>
+                        </ion-item>
+                        <ion-item>
+                          <h3>Read a list of the most important points made in an article.</h3>
+                          <ion-icon name="book" slot="start"></ion-icon>
+                          </ion-item>
+                        <ion-item>
+                          <h3>View articles from many sources and organise them into favourites.</h3>
+                          <ion-icon name="albums" slot="start"></ion-icon>
+                        </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
+              </ion-row>     
+              <ion-row class="ion-justify-content-center">
+                  <form class="ion-padding" [formGroup]="landingPageForm" (ngSubmit)="onSubmit()">
+    
+                    <ion-item>
+                      <ion-input name="customerEmail" size="40px" class="form-control" type="email" 
+                      placeholder="Enter email address..." formControlName="customerEmail"></ion-input>
+                      <ion-button class="form-control" type="submit" color="tertiary" [disabled]="landingPageForm.invalid">Try it!</ion-button>
+                    </ion-item> 
+                    <ion-label class="ion-text-center" color="light" position="stacked">
+                        <p>Give Neutrify a try. No credit card needed.</p>
+                    </ion-label>
+                  </form>
+                </ion-row>
+          </ion-grid>
+    </div>
+  </div>
+
+  <div class="feature-section">
     <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col>
-          <ion-text class="ion-text-center">
-            <h2>How can Neutrify improve my news consumption?</h2>
-          </ion-text>
-        </ion-col>
+      <ion-row class="ion-justify-content-center ion-text-center">
+        <h1>Never Suffer from Biased News Again</h1>
       </ion-row>
 
       <ion-row class="ion-justify-content-center">
           <ion-card class="feature">
               <div>
-                <ion-icon class="card-icon" name="stats"></ion-icon>
+                <ion-icon class="card-icon" name="search"></ion-icon>
               </div>
-            <ion-card-header class="ion-text-center ion-no-padding">
-              <ion-card-title>
-                <h4>Get an abundance of information</h4>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>
-                Neutrify gives you easy access to an abundance of metrics that can
-                help you determine the quality and trustworthiness of an article.
-              </p>
-            </ion-card-content>
-          </ion-card>
-
-          <ion-card class="feature">
-            <div>
-              <ion-icon class="card-icon" name="color-wand"></ion-icon>
-            </div>
-            <ion-card-header class="ion-text-center ion-no-padding">
-              <ion-card-title>
-                <h4>Filter out the hysteria</h4>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>
-                There are some stories that aren't worth reading, so Neutrify gives you the tools
-                to filter these articles out of your news feed, saving you from a headache.
-              </p>
-            </ion-card-content>
-          </ion-card>
-          
-          <ion-card class="feature">
-              <div>
-                <ion-icon class="card-icon" name="chatboxes"></ion-icon>
-              </div>
-            <ion-card-header class="ion-text-center ion-no-padding">
-              <ion-card-title>
-                  <h4>Engage in civil discussion</h4>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
+              <ion-card-header class="ion-text-center ion-no-padding">
+                <ion-card-title>
+                  <h2>Search for specifc articles</h2>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
                 <p>
-                  Neutrify’s chat algorithms protect you from unwanted exposure to trolls,
-                  so that you can focus on civil discussion.
+                  You can search for articles based on the words they contain, which is useful for researching a topic. 
                 </p>
+              </ion-card-content>
+            </ion-card>
+          <ion-card class="feature">
+              <div>
+                <ion-icon class="card-icon" name="football"></ion-icon>
+              </div>
+            <ion-card-header class="ion-text-center ion-no-padding">
+              <ion-card-title>
+                <h2>Sort by topic</h2>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                All articles can be sorted into different topics such as sport, politics, entertainment, economic etc.
+              </p>
             </ion-card-content>
           </ion-card>
+
+          <ion-card class="feature">
+              <div>
+                <ion-icon class="card-icon" name="globe"></ion-icon>
+              </div>
+              <ion-card-header class="ion-text-center ion-no-padding">
+                <ion-card-title>
+                  <h2>News from where you want it</h2>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>
+                  Alter the level of news coverage you see. Choose from local, national and global news sources.
+                </p>
+              </ion-card-content>
+            </ion-card>
       </ion-row>
+
       <ion-row class="ion-justify-content-center">
         <ion-card class="feature">
-          <div>
-            <ion-icon class="card-icon" name="book"></ion-icon>
-          </div>
+            <div>
+              <ion-icon class="card-icon" name="chatboxes"></ion-icon>
+            </div>
           <ion-card-header class="ion-text-center ion-no-padding">
             <ion-card-title>
-              <h4>Read summarised versions of articles</h4>
+                <h2>Engage in Civil Discussion</h2>
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p>
-              Neutrify makes your life easy by generating a list of the most important points
-              made in an article, meaning reading the article is optional.
-            </p>
+              <p>
+                Neutrify’s chat algorithms protect you from unwanted exposure to trolls,
+                so that you can focus on civil discussion.
+              </p>
           </ion-card-content>
         </ion-card>
-        
         <ion-card class="feature">
             <div>
               <ion-icon class="card-icon" name="save"></ion-icon>
             </div>
           <ion-card-header class="ion-text-center ion-no-padding">
             <ion-card-title>
-                <h4>Save important articles</h4>
+              <h2>Save Valuable Articles</h2>
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
@@ -134,7 +143,7 @@
           </div>
         <ion-card-header class="ion-text-center ion-no-padding">
           <ion-card-title>
-            <h4>Find out which articles are trending</h4>
+            <h2>Find out what's Trending</h2>
           </ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -147,51 +156,4 @@
       </ion-row>
     </ion-grid>
   </div>
-
-  <div class="break-whitesmoke-white"></div>
-
-  <div class="ion-padding secondary-feature-section">
-        <ion-row class="ion-justify-content-evenly">
-            <ion-img class="image" src="../../assets/img/neutrify.smile.jpg"></ion-img>
-            <ion-card class="feature">
-              <ion-card-content>
-                <ion-list>
-                  <ion-item>
-                    <p>
-                      View articles from many sources and organise them into favourites.
-                    </p>
-                    <ion-icon name="albums" slot="start"></ion-icon>
-                  </ion-item>
-                  <ion-item>
-                    <p>
-                      Search for specifc articles from amongst your news feed.
-                    </p>
-                    <ion-icon name="search" slot="start"></ion-icon>
-                  </ion-item>
-                  <ion-item>
-                    <p>
-                      Sort your news feed by the topics you are interested in.
-                    </p>
-                    <ion-icon name="football" slot="start"></ion-icon>
-                   </ion-item>
-                   <ion-item>
-                      <p>
-                        View all coverage of global news stories, as and when it happens.
-                      </p>
-                      <ion-icon name="globe" slot="start"></ion-icon>
-                     </ion-item>
-                </ion-list>
-              </ion-card-content>
-            </ion-card>
-        </ion-row>
-    </div>
-  
-    <!-- <div class="break-white-whitesmoke"></div>
-
-  <div class="cta-bot ion-padding">
-    <ion-row class="ion-justify-content-center">
-      <ion-button size="large" color="tertiary" (click)="navigateToTop()">Get started</ion-button>
-    </ion-row>
-  </div> -->
-
 </ion-content>

@@ -1,102 +1,106 @@
 <ion-content>
-  <div class="header ion-padding ion-text-center">
-    <ion-text color="light">
-      <h1>Thanks for your interest...</h1>
-          <h4>
-            but Neutrify is not quite finished yet
-          </h4>      
-    </ion-text>
+  <div class="header">
+      <ion-img class="logo" src="../../assets/img/logo/neutrify-1600px512px.png"></ion-img>
   </div>
-  <h4 class="ion-padding">We'd appreciate if you could help in shaping the future of Neutrify by spending a minute answering the questions below.</h4>
-  <div class="ion-padding survey">
-    <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" >
-      <div class="form-group">
-        <ion-list lines="none">
-          <ion-radio-group formControlName="localityOption">
-            <ion-list-header>
-              <ion-label>What kind of news coverage is most important to you?</ion-label>
-            </ion-list-header>
-            <ion-item>
-              Global
-              <ion-radio class="form-control" slot="start" value="global"></ion-radio>
-            </ion-item>
-            <ion-item>
-              National
-              <ion-radio class="form-control" slot="start" value="national"></ion-radio>
-            </ion-item>
-            <ion-item>
-              Local
-              <ion-radio class="form-control" slot="start" value="local"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-      <div class="form-group">
-        <ion-list lines="none">
-          <ion-radio-group formControlName="biasOption">
-            <ion-list-header>
-              <ion-label>Would you rather read a news story that...</ion-label>
-            </ion-list-header>
-            <ion-item>
-              ...reports equally on all perspective views of a story.
-              <ion-radio class="form-control" slot="start" value="neutral"></ion-radio>
-            </ion-item>
-            <ion-item>
-              ...reports on a story that is more favourable to your own beliefs.
-              <ion-radio class="form-control" slot="start" value="echo"></ion-radio>
-            </ion-item>
-            <ion-item>
-              ...reports on a story that opposes your own beliefs.
-              <ion-radio class="form-control" slot="start" value="masochist"></ion-radio>
-            </ion-item>
-            <ion-item>
-              ...reports only the facts of the story with no opinion or analysis.
-              <ion-radio class="form-control" slot="start" value="fact"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-      <div class="form-group">
-        <ion-list lines="none">
-          <ion-list-header>
-            Do you use for any of these online news services?
-          </ion-list-header>
-          <div *ngFor="let option of paidServicesOptions">
-            <ion-item>
-              {{option.label}}
-              <ion-checkbox class="form-control" (ionChange)="onCheckChange($event)" slot="start" value="{{option.value}}"></ion-checkbox>
-            </ion-item>
-          </div>
-        </ion-list>
-      </div>
-      <div class="form-group">
-        <ion-list lines="none">
-          <ion-list-header>
-            <ion-label>In your own words, what was the leading factor that drew you to Neutrify?</ion-label>
-          </ion-list-header>
-          <ion-item class="text-area">
-            <ion-textarea formControlName="tryReason" placeholder="Answer here"></ion-textarea>   
-          </ion-item>
-        </ion-list>
-      </div>
-      <div class="form-group">
-          <ion-list lines="none">
-            <ion-list-header>
-              <ion-label>Do you ever leave comments on articles or chat with strangers online?</ion-label>
-            </ion-list-header>
-            <ion-item>
-                <ion-toggle formControlName="leaveComments" #leaveCommentsToggle></ion-toggle> 
-                <p>   {{leaveCommentsToggle.checked? 'Yes': 'No'}}</p>
-            </ion-item>
-          </ion-list>
-        </div>
-      <div>
-        <ion-row class="ion-padding ion-justify-content-center">
-          <ion-button size="large" class="form-control" type="submit" [disabled]="surveyForm.invalid">Submit</ion-button>
-        </ion-row>
-      </div>
-    </form>
+  
+  <div class="ion-padding">
+      <ion-card class="survey">
+        <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+              <ion-list lines="none">
+                <ion-radio-group formControlName="localityOption">
+                  <ion-list-header>
+                    <ion-label>What kind of news coverage is most important to you?</ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    Global
+                    <ion-radio class="form-control" slot="start" value="global"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    National
+                    <ion-radio class="form-control" slot="start" value="national"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    Local
+                    <ion-radio class="form-control" slot="start" value="local"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-list>
+            </div>
+
+            <div class="form-group">
+                <ion-list lines="none">
+                  <ion-list-header>
+                    <ion-label>In your own words, what was the leading factor that drew you to Neutrify?</ion-label>
+                  </ion-list-header>
+                  <div class="ion-padding">
+                    <ion-item class="text-area">
+                        <ion-textarea formControlName="tryReason" placeholder="Answer here"></ion-textarea>   
+                      </ion-item>
+                  </div>
+                </ion-list>
+              </div>
+              
+            <div class="form-group">
+              <ion-list lines="none">
+                <ion-radio-group formControlName="biasOption">
+                  <ion-list-header>
+                    <ion-label>Would you rather read a news story that...</ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    ...reports equally on all perspective views of a story.
+                    <ion-radio class="form-control" slot="start" value="neutral"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    ...reports on a story that is more favourable to your own beliefs.
+                    <ion-radio class="form-control" slot="start" value="echo"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    ...reports on a story that opposes your own beliefs.
+                    <ion-radio class="form-control" slot="start" value="masochist"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    ...reports only the facts of the story with no opinion or analysis.
+                    <ion-radio class="form-control" slot="start" value="fact"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-list>
+            </div>
+
+            <div class="form-group">
+              <ion-list lines="none">
+                <ion-list-header>
+                  Do you use any of these online news services?
+                </ion-list-header>
+                <div *ngFor="let option of paidServicesOptions">
+                  <ion-item>
+                    {{option.label}}
+                    <ion-checkbox class="form-control" (ionChange)="onCheckChange($event)" slot="start" value="{{option.value}}"></ion-checkbox>
+                  </ion-item>
+                </div>
+              </ion-list>
+            </div>
+            
+            <div class="form-group">
+                <ion-list lines="none">
+                  <ion-list-header>
+                    <ion-label>Do you ever leave comments on articles or chat with strangers online?</ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                      <ion-toggle formControlName="leaveComments" #leaveCommentsToggle></ion-toggle> 
+                      <p>   {{leaveCommentsToggle.checked? 'Yes': 'No'}}</p>
+                  </ion-item>
+                </ion-list>
+              </div>
+            <div>
+              <ion-row class="ion-padding ion-justify-content-center">
+                <ion-button size="large" class="form-control" type="submit" [disabled]="surveyForm.invalid">Submit</ion-button>
+              </ion-row>
+            </div>
+          </form>
+      </ion-card>
   </div>
+    
   
 </ion-content>
   

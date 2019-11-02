@@ -9,11 +9,9 @@ ion-icon.card-icon {
     width: 75px;
     height: 75px;
 }
-
 ion-icon {
     color: #4169e1;
 }
-
 ion-img.image {
     width: 360px;
 }
@@ -22,46 +20,24 @@ ion-img.logo {
     width: 200px;
     height: 64px;
     margin: 0 auto;
-    // logo colours:
-    // red: #ec4c4c
-    // blue: #1761a0
-    // peach: #f2af58
-    // grey: #b1b1b1
-    // white: #ffffff
-    // black: #000000
 }
 
 .email-section {
     background-color: #4169e1;
 }
 
+.summary-section {
+    height: 380px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../assets/img/neutrify-banner.png');
+}
+
 .feature-section {
-    background-color: whitesmoke;
-}
-
-.secondary-feature-section {
     background-color: white;
-    max-width: 1080px;    
-    margin: 0 auto;
 }
-
-.break-whitesmoke-white {
-    height: 50px;
-    background-image: linear-gradient(whitesmoke, white);
-}
-
-.break-white-whitesmoke {
-    height: 20px;
-    background-image: linear-gradient(white, whitesmoke);
-}
-
-
-.cta-bot {
-    background-color: whitesmoke;
-}
-
 
 .feature {
     max-width: 360px;
-    // white-space: normal;
 }
