@@ -17,7 +17,18 @@
 			}
 		}
 	},
-	"auth": {},
-	"analytics": {},
+	"auth": {
+		"neutrifyc0793d08": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"analytics": {
+		"neutrify": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	},
 	"hosting": {}
 }

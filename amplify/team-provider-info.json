@@ -1,14 +1,31 @@
 {
-	"dev": {
-		"awscloudformation": {
-			"AuthRoleName": "neutrify-dev-20191029174016-authRole",
-			"UnauthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-authRole",
-			"Region": "eu-west-2",
-			"DeploymentBucketName": "neutrify-dev-20191029174016-deployment",
-			"UnauthRoleName": "neutrify-dev-20191029174016-unauthRole",
-			"StackName": "neutrify-dev-20191029174016",
-			"StackId": "arn:aws:cloudformation:eu-west-2:367347839712:stack/neutrify-dev-20191029174016/2df33f50-fa73-11e9-b474-069b836e2b40"
-		}
-	}
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "neutrify-dev-20191029174016-authRole",
+            "UnauthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::367347839712:role/neutrify-dev-20191029174016-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "neutrify-dev-20191029174016-deployment",
+            "UnauthRoleName": "neutrify-dev-20191029174016-unauthRole",
+            "StackName": "neutrify-dev-20191029174016",
+            "StackId": "arn:aws:cloudformation:eu-west-2:367347839712:stack/neutrify-dev-20191029174016/2df33f50-fa73-11e9-b474-069b836e2b40"
+        }
+    },
+    "analytics": {
+        "awscloudformation": {
+            "AuthRoleName": "neutrify-analytics-20191102163632-authRole",
+            "UnauthRoleArn": "arn:aws:iam::367347839712:role/neutrify-analytics-20191102163632-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::367347839712:role/neutrify-analytics-20191102163632-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "neutrify-analytics-20191102163632-deployment",
+            "UnauthRoleName": "neutrify-analytics-20191102163632-unauthRole",
+            "StackName": "neutrify-analytics-20191102163632",
+            "StackId": "arn:aws:cloudformation:eu-west-2:367347839712:stack/neutrify-analytics-20191102163632/11ab4b20-fd8f-11e9-b199-06bdd06f2a66"
+        },
+        "categories": {
+            "auth": {
+                "neutrifyc0793d08": {}
+            }
+        }
+    }
 }

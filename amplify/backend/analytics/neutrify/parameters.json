@@ -1,0 +1,20 @@
+{
+    "appName": "neutrify",
+    "roleName": "pinpointLambdaRolea1a447e0",
+    "cloudWatchPolicyName": "cloudWatchPolicya1a447e0",
+    "pinpointPolicyName": "pinpointPolicya1a447e0",
+    "authPolicyName": "pinpoint_amplify_a1a447e0",
+    "unauthPolicyName": "pinpoint_amplify_a1a447e0",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
