@@ -36,7 +36,7 @@ export class UnderConstructionPage implements OnInit {
 
   async createAlert(): Promise<HTMLIonAlertElement> {
     return await this.alertController.create({
-      subHeader: 'Neutrify is still under construction',
+      header: 'Neutrify is still under construction',
       message: '<p>You will be the first to know when Neutrify is ready!</p>'
       + '<p>In the meantime, could you help us understand what you really want from Neutrify '
       + 'by answering a few questions?</p>',
