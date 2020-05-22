@@ -13,7 +13,9 @@
         },
         "categories": {
             "auth": {
-                "neutrifyb749557b": {},
+                "neutrifyb749557b": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"29591914926-glnb746qgcidvotad8uuudgotvncihpb.apps.googleusercontent.com\",\"client_secret\":\"M7bpiGlgIBUqhKqRURL-c9lp\"}]"
+                },
                 "userPoolGroups": {}
             }
         }

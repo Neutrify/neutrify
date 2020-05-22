@@ -25,6 +25,6 @@ export class AuthPage implements OnInit {
   }
 
   backToHome() {
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('/home/welcome');
   }
 }

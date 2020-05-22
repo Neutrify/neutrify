@@ -48,7 +48,7 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
+    "useDefault": "defaultSocial",
     "usernameAttributes": [
         "email"
     ],
@@ -59,9 +59,15 @@
     "userPoolGroups": true,
     "adminQueries": false,
     "triggers": "{}",
-    "hostedUI": false,
+    "hostedUI": true,
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": []
+    "permissions": [],
+    "hostedUIDomainName": "neutrify-app",
+    "authProvidersUserPool": [
+        "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:8100/auth/redirect/\",\"https://develop.d2dyvckv1j2x14.amplifyapp.com/auth/redirect/\",\"https://www.neutrify.news/auth/redirect/\"],\"LogoutURLs\":[\"http://localhost:8100/home/welcome/\",\"https://develop.d2dyvckv1j2x14.amplifyapp.com/home/welcome/\",\"https://www.neutrify.news/home/welcome/\"]}"
 }

@@ -1,6 +1,9 @@
 <ion-content> 
+  
   <div class="container" *ngIf="!showConfirmSignUp">
-    <form  [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <app-federated-sign-in></app-federated-sign-in>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
       <div class="form-group">
         <p>To begin using Neutrify, you must first create an account. Please fill in the form below.</p>
         <div class="form-item">

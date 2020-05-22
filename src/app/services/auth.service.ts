@@ -31,21 +31,27 @@ export class AuthService {
           this.signedIn = authState.state === 'signedIn';
 
           if (!authState.user) {
-            this.user = null;
+            let creds;
+
+            try {
+              creds = (await Auth.currentAuthenticatedUser());
+            } catch (e) {
+              // do nothing
+            }
+
+            this.user = creds ? creds : null;
           } else {
             this.user = authState.user;
-            if (this.signedIn) {
-              this.userEmail = this.user.attributes.email;
-            }
           }
 
           if (this.signedIn) {
-            const config = await this.neutrifyAPI.ConfigByOwner(authState.user.username, null, null, 1);
+            this.userEmail = this.user.attributes.email;
+            const config = await this.neutrifyAPI.ConfigByOwner(this.user.username, null, null, 1);
             if (config.items.length !== 0) {
               await this.filterService.updateFilterOptions(config.items[0]);
               this.loaded = true;
             } else {
-              this.loaded = false;
+              this.initSettings(this.userEmail);
             }
 
             this.menu.enable(true, 'filterMenu');
@@ -69,71 +75,7 @@ export class AuthService {
       const user = await Auth.signIn(email, password);
       const config = await this.neutrifyAPI.ConfigByOwner(user.username, null, null, 1);
       if (config.items.length === 0) {
-        const now = new Date();
-        const userId = uuid();
-        const configId = uuid();
-
-        const createUserPromise = this.neutrifyAPI.CreateUser({
-          email: user.attributes.email,
-          freeTrial: true,
-          freeTrialStartDate: now.toISOString(),
-          freeTrialEndDate: add(now, {months: 1}).toISOString(),
-          id: userId,
-          isPremium: false,
-          userConfigId: configId
-        });
-
-        const createConfigPromise = this.neutrifyAPI.CreateConfig({
-          configUserId: userId,
-          id: configId,
-          keywordsToInclude: [],
-          keywordsToExclude: [],
-          qualityUpperRange: 5,
-          qualityLowerRange: 0,
-          savedArticleIds: [],
-          sourcesToInclude: [],
-          sourcesToExclude: [],
-          toneUpperRange: 1,
-          toneLowerRange: -1,
-          topicsToInclude: JSON.stringify({
-            arts: [],
-            games: [],
-            news: [],
-            regional: [],
-            society: [],
-            business: [],
-            health: [],
-            recreation: [],
-            science: [],
-            sports: [],
-            computers: [],
-            home: [],
-            shopping: [],
-          }),
-          topicsToExclude: JSON.stringify({
-            arts: [],
-            games: [],
-            news: [],
-            regional: [],
-            society: [],
-            business: [],
-            health: [],
-            recreation: [],
-            science: [],
-            sports: [],
-            computers: [],
-            home: [],
-            shopping: [],
-          }),
-          locationsToInclude: [],
-          locationsToExclude: []
-        });
-
-        const creationRes = await Promise.all([createUserPromise, createConfigPromise]);
-        if (!this.loaded) {
-          await this.filterService.updateFilterOptions(creationRes[1]);
-          this.loaded = true;
-        }
+        this.initSettings(user.attributes.email);
       }
 
       return 'true';
@@ -153,6 +95,74 @@ export class AuthService {
         console.log('There was an error signing in. Service returned this error: ', e);
         return 'false';
       }
+    }
+  }
+
+  async initSettings(userEmail) {
+    const now = new Date();
+    const userId = uuid();
+    const configId = uuid();
+
+    const createUserPromise = this.neutrifyAPI.CreateUser({
+      email: userEmail,
+      freeTrial: true,
+      freeTrialStartDate: now.toISOString(),
+      freeTrialEndDate: add(now, {months: 1}).toISOString(),
+      id: userId,
+      isPremium: false,
+      userConfigId: configId
+    });
+
+    const createConfigPromise = this.neutrifyAPI.CreateConfig({
+      configUserId: userId,
+      id: configId,
+      keywordsToInclude: [],
+      keywordsToExclude: [],
+      qualityUpperRange: 5,
+      qualityLowerRange: 0,
+      savedArticleIds: [],
+      sourcesToInclude: [],
+      sourcesToExclude: [],
+      toneUpperRange: 1,
+      toneLowerRange: -1,
+      topicsToInclude: JSON.stringify({
+        arts: [],
+        games: [],
+        news: [],
+        regional: [],
+        society: [],
+        business: [],
+        health: [],
+        recreation: [],
+        science: [],
+        sports: [],
+        computers: [],
+        home: [],
+        shopping: [],
+      }),
+      topicsToExclude: JSON.stringify({
+        arts: [],
+        games: [],
+        news: [],
+        regional: [],
+        society: [],
+        business: [],
+        health: [],
+        recreation: [],
+        science: [],
+        sports: [],
+        computers: [],
+        home: [],
+        shopping: [],
+      }),
+      locationsToInclude: [],
+      locationsToExclude: []
+    });
+
+    const creationRes = await Promise.all([createUserPromise, createConfigPromise]);
+    if (!this.loaded) {
+      await this.filterService.updateFilterOptions(creationRes[1]);
+      this.loaded = true;
     }
   }
 
@@ -264,5 +274,13 @@ export class AuthService {
     }
 
     return creds ? true : false;
+  }
+
+  async federatedSignIn(provider) {
+    try {
+      const res = await Auth.federatedSignIn({ provider });
+    } catch (e) {
+      console.log('fed sign-in failed');
+    }
   }
 }

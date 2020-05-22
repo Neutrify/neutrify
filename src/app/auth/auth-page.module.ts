@@ -1,3 +1,5 @@
+import { RedirectComponent } from './redirect/redirect.component';
+import { FederatedSignInComponent } from './federated-sign-in/federated-sign-in.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthPage } from './auth-page.page';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -15,10 +17,11 @@ const routes: Routes = [
     path: '',
     component: AuthPage,
     children: [
-      { path: '', redirectTo: '/auth/create-account', pathMatch: 'full' },
+      { path: '', redirectTo: '/auth/sign-in', pathMatch: 'full' },
       { path: 'create-account', component: CreateAccountComponent },
       { path: 'sign-in', component: SignInComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
+      { path: 'redirect', component: RedirectComponent },
     ]
   }
 ];
@@ -31,6 +34,13 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AuthPage, CreateAccountComponent, SignInComponent, ResetPasswordComponent]
+  declarations: [
+    AuthPage,
+    CreateAccountComponent,
+    SignInComponent,
+    ResetPasswordComponent,
+    FederatedSignInComponent,
+    RedirectComponent
+  ]
 })
 export class AuthPageModule {}
